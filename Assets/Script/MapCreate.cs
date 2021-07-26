@@ -53,7 +53,7 @@ public class MapCreate : MonoBehaviour
         while (m_createCount < m_createFloorNum)
         {
             m_createEvent.OnNext(Unit.Default);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForEndOfFrame();
         }
     }
 }

@@ -13,23 +13,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_player;
     [SerializeField] Text m_scoreText;
     [SerializeField] Text m_timeText;
+    [SerializeField] MapCreate map;
+    [SerializeField] Button m_restart;
     Subject<Unit> m_gameStart = new Subject<Unit>();
+    Subject<Unit> m_gameEnd = new Subject<Unit>();
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
+        m_restart.gameObject.SetActive(false);
         m_timeText.text = m_endTime.ToString("D2");
         m_gameStart.Subscribe(_ => StartCoroutine(GameCountDown()));
+        m_gameStart.Subscribe(_ => StartCoroutine(GameScore()));
+        m_gameEnd.Subscribe(_ => GameEnd());
         StartCoroutine(CountDown());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_player != null || m_endTime >= 0)
-        {
-            m_score += 1000 * m_scoreRate;
-            m_scoreText.text = m_score.ToString("D10");
-        }
+        
     }
 
     IEnumerator CountDown()
@@ -53,5 +56,25 @@ public class GameManager : MonoBehaviour
             m_timeText.text = m_endTime.ToString("D2");
             yield return new WaitForSeconds(1);
         }
+        m_gameEnd.OnNext(Unit.Default);
+    }
+
+    IEnumerator GameScore()
+    {
+        while(true)
+        {
+            if (m_player != null || m_endTime >= 0)
+            {
+                m_score += 1000 * m_scoreRate;
+                m_scoreText.text = m_score.ToString("D10");
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    void GameEnd()
+    {
+        Time.timeScale = 0;
+        m_restart.gameObject.SetActive(true);
     }
 }
