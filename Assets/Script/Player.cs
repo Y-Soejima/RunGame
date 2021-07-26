@@ -53,9 +53,11 @@ public class Player : MonoBehaviour
         {
             if (m_JumpCount < m_maxJumpCount)
             {
+                m_playerRigidbody.velocity = Vector2.zero;
                 m_playerRigidbody.AddForce(transform.up * m_jumpPower, ForceMode2D.Impulse);
                 m_playerAnimator.SetTrigger("Jump");
                 m_JumpCount++;
+                Debug.Log(m_JumpCount);
             }       
         }
         
