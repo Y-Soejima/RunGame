@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System;
+using UniRx;
 
 public class Player : MonoBehaviour
 {
@@ -32,6 +35,7 @@ public class Player : MonoBehaviour
         m_playerRigidbody = GetComponent<Rigidbody2D>();
 
         m_playerAnimator = GetComponent<Animator>();
+        m_gameManager.m_gameStart.Subscribe(_ => StartCoroutine(PlayerRun()));
     }
 
     
@@ -53,7 +57,6 @@ public class Player : MonoBehaviour
                 m_playerRigidbody.AddForce(transform.up * m_jumpPower, ForceMode2D.Impulse);
                 m_playerAnimator.SetTrigger("Jump");
                 m_JumpCount++;
-               
             }       
         }
         
@@ -65,8 +68,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-
-        Run();
+        //Run();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -81,12 +83,18 @@ public class Player : MonoBehaviour
         //var item=other.GetComponent<>
         //item.Item();
     }
-    void Run()
+
+    IEnumerator PlayerRun()
     {
-        m_playerRigidbody.velocity = new Vector2(m_speed, m_playerRigidbody.velocity.y);
+        while (m_gameManager.m_player != null)
+        {
+            m_playerRigidbody.velocity = new Vector2(m_speed, m_playerRigidbody.velocity.y);
+            yield return new WaitForEndOfFrame();
+        }
     }
     private void OnBecameInvisible()
     {
+        Debug.Log("Ž€");
         Die();
     }
     void Die()
