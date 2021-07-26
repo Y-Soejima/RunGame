@@ -145,9 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ed72967763c5148ac4b6c872bf8f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 1.3
-  m_jumpPower: 8
+  m_playerRigidbody: {fileID: 0}
+  m_speed: 5
+  m_jumpPower: 10
   m_deadPosision: -5
+  m_rayDistance: 0.08
+  m_offset: -0.83
 --- !u!95 &633332605426036963
 Animator:
   serializedVersion: 3
