@@ -56,10 +56,7 @@ public class Player : MonoBehaviour
                
             }       
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            m_playerAnimator.SetTrigger("Die");
-        }
+        
         if (transform.position.y <= m_deadPosision)
         {
             Die();
@@ -94,6 +91,7 @@ public class Player : MonoBehaviour
     }
     void Die()
     {
+        Destroy(this.gameObject);
         m_gameManager.m_player = null;
        
     }

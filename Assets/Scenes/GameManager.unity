@@ -533,17 +533,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 633332605426036972, guid: 33ffb1cf002bfc9499c648af1374df2d, type: 3}
+      propertyPath: m_speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 633332605426036973, guid: 33ffb1cf002bfc9499c648af1374df2d, type: 3}
       propertyPath: m_Name
       value: Player (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 633332605426036975, guid: 33ffb1cf002bfc9499c648af1374df2d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 633332605426036975, guid: 33ffb1cf002bfc9499c648af1374df2d, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33ffb1cf002bfc9499c648af1374df2d, type: 3}
@@ -845,22 +841,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 633332605426036973, guid: 33ffb1cf002bfc9499c648af1374df2d, type: 3}
   m_PrefabInstance: {fileID: 539480627}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &973825353
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973825346}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!1 &1277718699
 GameObject:
   m_ObjectHideFlags: 0
