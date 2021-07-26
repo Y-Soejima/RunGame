@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
             else if (m_player == null)
             {
                 m_gameEnd.OnNext(Unit.Default);
+                break;
             }
             yield return new WaitForEndOfFrame();
         }

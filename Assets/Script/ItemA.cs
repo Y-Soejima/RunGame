@@ -8,11 +8,11 @@ public class ItemA : ItemBase
     [SerializeField] GameManager gm;
     public override void Item()
     {
-        AddPtime(gm.EndTime);
+        AddPtime();
     }
 
-    public void AddPtime(int timer)
+    public void AddPtime()
     {
-        timer += purasu;
+        gm.EndTime += purasu;
     }
 }
