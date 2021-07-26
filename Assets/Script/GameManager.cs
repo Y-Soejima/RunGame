@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_player;
     [SerializeField] Text m_scoreText;
     [SerializeField] Text m_timeText;
-    [SerializeField] MapCreate map;
     [SerializeField] Button m_restart;
+    static int[] m_scoreRanking = new int[10];
+    public int[] ScoreRanking { get; set; }
     Subject<Unit> m_gameStart = new Subject<Unit>();
     Subject<Unit> m_gameEnd = new Subject<Unit>();
     // Start is called before the first frame update
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameScore()
     {
-        while(true)
+        while(m_endTime > 0)
         {
             if (m_player != null || m_endTime >= 0)
             {

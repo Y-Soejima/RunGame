@@ -24,13 +24,21 @@ public class MapCreate : MonoBehaviour
 
     void FloorCreate()
     {
-        if (m_createCount < m_createFloorNum - 1)
+        if (m_createCount == 0)
         {
-            int floorNum = UnityEngine.Random.Range(0, m_floorPrefab.Length);
+            var floor = Instantiate(m_floorPrefab[0], new Vector3(m_firstCreatePosition.position.x + m_createCount * m_x, m_firstCreatePosition.position.y + m_createCount * m_y, 0), m_firstCreatePosition.rotation);
+            m_floors[m_createCount] = floor;
+            m_createCount++;
+        }
+
+        else if (m_createCount < m_createFloorNum - 1)
+        {
+            int floorNum = UnityEngine.Random.Range(1, m_floorPrefab.Length);
             var floor = Instantiate(m_floorPrefab[floorNum], new Vector3(m_firstCreatePosition.position.x + m_createCount * m_x, m_firstCreatePosition.position.y + m_createCount * m_y, 0), m_firstCreatePosition.rotation);
             m_floors[m_createCount] = floor;
             m_createCount++;
         }
+        
         else
         {
             var floor = Instantiate(m_lastFloorPrefab, new Vector3(m_firstCreatePosition.position.x + m_createCount * m_x, m_firstCreatePosition.position.y + m_createCount * m_y, 0), m_firstCreatePosition.rotation);
