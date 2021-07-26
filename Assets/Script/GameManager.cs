@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int ScoreRate { get; set; }
     [SerializeField] int m_score;
     [SerializeField] int m_endTime;
-    public int EndTime { get; set; }
+    public int EndTime { get => m_endTime; set => m_endTime = value; }
     public  GameObject m_player;
     [SerializeField] Text m_scoreText;
     [SerializeField] Text m_timeText;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        m_timeText.text = m_endTime.ToString("D2");
     }
 
     IEnumerator CountDown()
@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
         while(m_endTime > 0)
         {
             m_endTime -= 1;
-            m_timeText.text = m_endTime.ToString("D2");
             yield return new WaitForSeconds(1);
         }
         m_gameEnd.OnNext(Unit.Default);
@@ -76,6 +75,7 @@ public class GameManager : MonoBehaviour
             else if (m_player == null)
             {
                 m_gameEnd.OnNext(Unit.Default);
+                break;
             }
             yield return new WaitForEndOfFrame();
         }

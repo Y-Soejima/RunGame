@@ -9,11 +9,11 @@ public class ItemA : ItemBase
     public override void Item()
     {
         Debug.Log("item");
-        AddPtime(gm.EndTime);
+        AddPtime();
     }
 
-    public void AddPtime(int timer)
+    public void AddPtime()
     {
-        timer += purasu;
+        gm.EndTime += purasu;
     }
 }
