@@ -250,9 +250,14 @@ MonoBehaviour:
   m_firstCreatePosition: {fileID: 381089231}
   m_createFloorNum: 500
   m_floorPrefab:
+  - {fileID: 2728668920246843363, guid: 8f7234d1ecca9764fadd06d7c23a8fbe, type: 3}
   - {fileID: 4367617998096369887, guid: 12dc725977ce4d34bb774a3ffd282121, type: 3}
   - {fileID: 4983392514771293720, guid: dcabfd0fc980151438307362a136bc1b, type: 3}
   - {fileID: 6082517605855064328, guid: 190e37431f5923b448f7ba8c1f52e586, type: 3}
+  - {fileID: 2215722536411990244, guid: 03c083107d6a2fd4c95d36d8edb55938, type: 3}
+  - {fileID: 8190182173404821327, guid: 4ed2de16f9b8a4942ac6feb031bb0c61, type: 3}
+  - {fileID: 6922806159038832215, guid: d07967f02eac30049aa7565bfbe652dc, type: 3}
+  - {fileID: 8849580889104458521, guid: 39742b24b16f1ed40a8e0556f4338854, type: 3}
   m_lastFloorPrefab: {fileID: 4367617998096369887, guid: 12dc725977ce4d34bb774a3ffd282121, type: 3}
 --- !u!1 &397007887
 GameObject:
