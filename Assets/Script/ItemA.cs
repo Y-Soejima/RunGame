@@ -10,6 +10,7 @@ public class ItemA : ItemBase
     {
         Debug.Log("item");
         AddPtime();
+        Destroy(gameObject);
     }
 
     public void AddPtime()
