@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System;
 using UniRx;
-
 public class Player : MonoBehaviour
 {
     private Collider2D m_playerCollider;
@@ -59,10 +58,7 @@ public class Player : MonoBehaviour
                 m_JumpCount++;
             }       
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            m_playerAnimator.SetTrigger("Die");
-        }
+        
         if (transform.position.y <= m_deadPosision)
         {
             Die();
@@ -81,12 +77,16 @@ public class Player : MonoBehaviour
             m_playerAnimator.SetTrigger("Die");
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //var item=other.GetComponent<>
-        //item.Item();
+        if (collision.gameObject.tag == "Item")
+        {
+            var item = collision.GetComponent<ItemA>();
+            item.Item();
+        }
     }
-
+   
+    
     IEnumerator PlayerRun()
     {
         while (m_gameManager.m_player != null)

@@ -8,6 +8,7 @@ public class ItemA : ItemBase
     [SerializeField] GameManager gm;
     public override void Item()
     {
+        Debug.Log("item");
         AddPtime(gm.EndTime);
     }
 
