@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int ScoreRate { get; set; }
     [SerializeField] int m_score;
     [SerializeField] int m_endTime;
+    public int EndTime { get; set; }
     [SerializeField] GameObject m_player;
     [SerializeField] Text m_scoreText;
     [SerializeField] Text m_timeText;

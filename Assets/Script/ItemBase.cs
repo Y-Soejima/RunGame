@@ -23,7 +23,7 @@ public class ItemBase : MonoBehaviour
         
     }
 
-    protected virtual void Item()
+    public virtual void Item()
     {
 
     }
