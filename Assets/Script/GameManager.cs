@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text m_scoreText;
     [SerializeField] Text m_timeText;
     [SerializeField] Button m_restart;
+    [SerializeField] Text m_CoundDownText;
     static int[] m_scoreRanking = new int[10];
-    public int[] ScoreRanking { get; set; }
     [SerializeField] Text[] m_rankingText = new Text[10];
     [SerializeField] GameObject m_textCamvas;
     public Subject<Unit> m_gameStart = new Subject<Unit>();
@@ -46,10 +46,12 @@ public class GameManager : MonoBehaviour
         while(time > 0)
         {
             Debug.Log(time);
+            m_CoundDownText.text = time.ToString();
             time -= 1;
             yield return new WaitForSeconds(1);
         }
         Debug.Log("start");
+        Destroy(m_CoundDownText.gameObject);
         m_gameStart.OnNext(Unit.Default);
     }
 
