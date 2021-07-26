@@ -9,17 +9,6 @@ public class ItemBase : MonoBehaviour
 
     public enum ItemList
     {
-
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
