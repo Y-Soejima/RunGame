@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int[] ScoreRanking { get; set; }
     [SerializeField] Text[] m_rankingText = new Text[10];
     [SerializeField] GameObject m_textCamvas;
-    Subject<Unit> m_gameStart = new Subject<Unit>();
+    public Subject<Unit> m_gameStart = new Subject<Unit>();
     Subject<Unit> m_gameEnd = new Subject<Unit>();
     // Start is called before the first frame update
     void Start()
