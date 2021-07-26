@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private Animator m_playerAnimator;
 
-    private int m_maxJumpCount = 1;
+    private int m_maxJumpCount = 2;
 
     private int m_JumpCount = 0;
 
@@ -42,13 +42,7 @@ public class Player : MonoBehaviour
     {
 
 
-        Ray2D ray = new Ray2D(new Vector2(transform.position.x, transform.position.y + m_offset), -transform.up);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin,ray.direction,m_rayDistance);
-
-        if (hit.collider)
-        {
-            m_JumpCount = 0;
-        }    
+       
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (m_JumpCount < m_maxJumpCount)
@@ -67,16 +61,13 @@ public class Player : MonoBehaviour
         }
        
     }
-    void FixedUpdate()
-    {
-        //Run();
-    }
+  
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Floor")
         {
-            Die();
-            m_playerAnimator.SetTrigger("Die");
+            m_JumpCount = 0;
+         
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

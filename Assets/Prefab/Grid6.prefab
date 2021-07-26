@@ -1834,7 +1834,7 @@ GameObject:
   - component: {fileID: 2533150422092742230}
   m_Layer: 0
   m_Name: Tilemap (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2243,7 +2243,7 @@ GameObject:
   - component: {fileID: 2251449016647639508}
   m_Layer: 0
   m_Name: Grid6
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
