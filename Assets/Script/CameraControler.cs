@@ -34,7 +34,7 @@ public class CameraControler : MonoBehaviour
     {
         while(m_gm.m_player != null)
         {
-            m_rigidbody.velocity = new Vector2(m_plaerPrefab.GetComponent<Player>().m_speed, m_rigidbody.velocity.y);
+            m_rigidbody.velocity = new Vector2(m_plaerPrefab.GetComponent<Player>().m_speed * 0.98f, m_rigidbody.velocity.y);
             yield return new WaitForEndOfFrame();
         }
     }
